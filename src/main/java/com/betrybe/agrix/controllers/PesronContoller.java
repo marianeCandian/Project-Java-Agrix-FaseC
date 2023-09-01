@@ -32,8 +32,11 @@ public class PesronContoller {
     this.personService = personService;
   }
 
+  /**
+   * Rota post Person.
+   */
   @PostMapping()
-  public ResponseEntity<?> createFarm(@RequestBody PersonDto personDto) {
+  public ResponseEntity<?> createPerson(@RequestBody PersonDto personDto) {
     Person newPerson = personService.create(personDto.toPerson());
     PersonDto.ToResponse savedPerson = PersonDto.ToResponse.fromEntity(newPerson);
     return ResponseEntity
